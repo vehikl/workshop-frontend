@@ -8,15 +8,13 @@
 
 
 <script lang="ts" setup>
-import {HttpClient} from "@/support/HttpClient";
+import httpClient from "@/support/HttpClient";
 import {reactive} from "vue";
-
-const http = new HttpClient();
 
 const credentials = reactive({email: "", password: ""});
 
 async function login() {
-  const result = await http.post("api/login", credentials)
+  const result = await httpClient.post("api/login", credentials)
 
   window.localStorage.setItem('token', result?.data?.token);
 }

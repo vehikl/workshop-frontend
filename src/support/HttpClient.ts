@@ -15,3 +15,7 @@ export class HttpClient {
         return this.client.post(url, data);
     }
 }
+
+const instance = new HttpClient();
+
+export default instance;
