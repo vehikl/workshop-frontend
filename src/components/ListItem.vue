@@ -1,6 +1,6 @@
 <template>
   <div>
-    {{ item.description }}
+    {{ props.item.description }}
   </div>
 </template>
 
@@ -8,7 +8,7 @@
 import {defineProps} from "vue";
 import {Item} from "@/types";
 
-const {item} = defineProps<{ item: Item }>();
+const props = defineProps<{ item: Item }>();
 
 </script>
 
