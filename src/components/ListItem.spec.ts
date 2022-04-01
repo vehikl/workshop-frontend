@@ -3,7 +3,7 @@ import ListItem from '@/components/ListItem.vue'
 import {Item} from "@/types";
 
 describe('ListItem.vue', () => {
-  it('renders item description when passed', () => {
+  it('displays the description of the item', () => {
     const item: Item = {
       id: 1234,
       description: "Do the dishes"
