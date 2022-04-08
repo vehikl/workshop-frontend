@@ -18,7 +18,6 @@ describe('todo-list', () => {
         await wrapper.find('input[name=new-item]').setValue("Do the dishes");
         await wrapper.find('button').trigger('click');
 
-
         await wrapper.find('input[name=new-item]').setValue("Another thing");
         await wrapper.find('button').trigger('click');
 
@@ -36,5 +35,22 @@ describe('todo-list', () => {
         expect(wrapper.find('button').element.disabled).toBe(false);
     });
 
+    it.todo('rejects invalid items'); // What is invalid?  The button should be disabled
+
+    it.todo('removes a given item when the delete button of that item is clicked');
+    it.todo('removes all items when the "clear" button is clicked');
+    it.todo('submits a new item when ENTER is pressed while the input is on focus');
     it.todo('strikes-out an item when its checkmark is checked');
+
+    describe('changing order of items', () => {
+        it.todo('moves an item up by one when their up arrow is clicked.')
+        it.todo('moves an item down by one when their down arrow is clicked.')
+        it.todo('disables the up arrow for an item that is at the top of the list.')
+        it.todo('disables the down arrow for an item that is at the bottom of the list.')
+    });
+
+    // TODO: Since we're following TDD, remember to see what can be clean-up while your tests are green.
+    //      - For example, are there any variables we can extract?
+
+
 });
