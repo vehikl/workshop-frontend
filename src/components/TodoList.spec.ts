@@ -35,16 +35,35 @@ describe('todo-list', () => {
         expect(wrapper.find('button').element.disabled).toBe(false);
     });
     it.todo('rejects invalid items'); // What is invalid?  The button should be disabled
+
     it('removes a given item when the delete button of that item is clicked', async () => {
         const wrapper = mount(TodoList)
-
-        expect(wrapper.find('li').exists()).toBeTruthy();
-        await wrapper.find('li button').trigger('click');
+        let target = wrapper.find('li');
+        expect(target.exists()).toBeTruthy();
+        await target.find('button').trigger('click');
         expect(wrapper.find('li').exists()).toBeFalsy();
     });
 
-    it.todo('removes all items when the "clear" button is clicked');
-    it.todo('submits a new item when ENTER is pressed while the input is on focus');
+    it('removes all items when the "clear" button is clicked', async () => {
+        const wrapper = mount(TodoList)
+        let target = wrapper.find('li');
+        expect(target.exists()).toBeTruthy();
+        await wrapper.find('button[name=clear-items]').trigger('click');
+        expect(wrapper.find('li').exists()).toBeFalsy();
+    });
+
+
+    it('submits a new item when ENTER is pressed while the input is on focus', async () => {
+        const wrapper = mount(TodoList)
+
+        await wrapper.find('input[name=new-item]').setValue("Do the dishes");
+
+        await wrapper.find('input').trigger('keyup', {
+            key: 'enter'
+        });
+
+        expect(wrapper.find('ol').text()).toContain("Do the dishes");
+    });
     it.todo('strikes-out an item when its checkmark is checked');
 
     describe('changing order of items', () => {

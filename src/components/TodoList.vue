@@ -1,7 +1,7 @@
 <template>
   <div>
     <div style="display: flex;justify-content: normal; align-content: center">
-      <input v-model="text" name="new-item" type="text">
+      <input v-model="text" name="new-item" type="text" @keyup.enter="add">
       <button :disabled="!text" @click="add">Add</button>
     </div>
 
@@ -10,6 +10,7 @@
         <ListItem :item="item" @delete-item="deleteItem(item)"/>
       </li>
     </ol>
+    <button name="clear-items" @click="clear">Clear</button>
   </div>
 </template>
 
@@ -26,6 +27,10 @@ const items = ref<Item[]>([{id: 123, description: "Something else"}]);
 function add() {
   items.value.push({id: Date.now(), description: text.value})
   text.value = '';
+}
+
+function clear() {
+  items.value = [];
 }
 
 function deleteItem(targetForDeletion: Item) {
