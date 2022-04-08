@@ -7,7 +7,7 @@
 
     <ol>
       <li v-for="item in items" :key="item.id">
-        <ListItem :item="item"/>
+        <ListItem :item="item" @delete-item="deleteItem(item)"/>
       </li>
     </ol>
   </div>
@@ -28,4 +28,7 @@ function add() {
   text.value = '';
 }
 
+function deleteItem(targetForDeletion: Item) {
+  items.value = items.value.filter(item => item.id !== targetForDeletion.id)
+}
 </script>

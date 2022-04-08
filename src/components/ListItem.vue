@@ -1,6 +1,7 @@
 <template>
   <div>
     {{ props.item.description }}
+    <button @click="$emit('deleteItem')">Delete</button>
   </div>
 </template>
 

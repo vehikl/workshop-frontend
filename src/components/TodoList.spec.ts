@@ -34,10 +34,15 @@ describe('todo-list', () => {
         await wrapper.find('input[name=new-item]').setValue("Do the dishes");
         expect(wrapper.find('button').element.disabled).toBe(false);
     });
-
     it.todo('rejects invalid items'); // What is invalid?  The button should be disabled
+    it('removes a given item when the delete button of that item is clicked', async () => {
+        const wrapper = mount(TodoList)
 
-    it.todo('removes a given item when the delete button of that item is clicked');
+        expect(wrapper.find('li').exists()).toBeTruthy();
+        await wrapper.find('li button').trigger('click');
+        expect(wrapper.find('li').exists()).toBeFalsy();
+    });
+
     it.todo('removes all items when the "clear" button is clicked');
     it.todo('submits a new item when ENTER is pressed while the input is on focus');
     it.todo('strikes-out an item when its checkmark is checked');
