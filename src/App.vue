@@ -1,5 +1,7 @@
 <template>
-  <TodoList/>
+  <div class="container mx-auto">
+    <TodoList/>
+  </div>
 </template>
 
 <script lang="ts" setup>

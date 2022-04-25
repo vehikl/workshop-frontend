@@ -4,13 +4,13 @@ import {HttpClient} from "@/support/HttpClient";
 
 describe('Login Form', () => {
     it('relays credentials to receive a bearer token from the api login route when the login button is pressed', async () => {
-        let loginTokenReturnedFromTheBackend = "abc";
+        const loginTokenReturnedFromTheBackend = "abc";
         HttpClient.prototype.post = jest.fn().mockReturnValue({data: {token: loginTokenReturnedFromTheBackend}});
 
         const wrapper = mount(LoginForm);
 
-        let email = "foobar@gmail.com";
-        let password = "secret";
+        const email = "foobar@gmail.com";
+        const password = "secret";
 
         await wrapper.find('input[type=email]').setValue(email);
         await wrapper.find('input[type=password]').setValue(password);

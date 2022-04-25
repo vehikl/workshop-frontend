@@ -38,7 +38,7 @@ describe('todo-list', () => {
 
     it('removes a given item when the delete button of that item is clicked', async () => {
         const wrapper = mount(TodoList)
-        let target = wrapper.find('li');
+        const target = wrapper.find('li');
         expect(target.exists()).toBeTruthy();
         await target.find('button').trigger('click');
         expect(wrapper.find('li').exists()).toBeFalsy();
@@ -46,7 +46,7 @@ describe('todo-list', () => {
 
     it('removes all items when the "clear" button is clicked', async () => {
         const wrapper = mount(TodoList)
-        let target = wrapper.find('li');
+        const target = wrapper.find('li');
         expect(target.exists()).toBeTruthy();
         await wrapper.find('button[name=clear-items]').trigger('click');
         expect(wrapper.find('li').exists()).toBeFalsy();
