@@ -52,7 +52,6 @@ describe('todo-list', () => {
         expect(wrapper.find('li').exists()).toBeFalsy();
     });
 
-
     it('submits a new item when ENTER is pressed while the input is on focus', async () => {
         const wrapper = mount(TodoList)
 
@@ -64,7 +63,13 @@ describe('todo-list', () => {
 
         expect(wrapper.find('ol').text()).toContain("Do the dishes");
     });
-    it.todo('strikes-out an item when its checkmark is checked');
+
+    it('strikes-out an item when its checkmark is checked', async () => {
+        const wrapper = mount(TodoList)
+        expect(wrapper.find('li del').exists()).toBe(false);
+        await wrapper.find('li input[type=checkbox]').trigger('click');
+        expect(wrapper.find('li del').exists()).toBe(true);
+    });
 
     describe('changing order of items', () => {
         it.todo('moves an item up by one when their up arrow is clicked.')

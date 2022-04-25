@@ -7,7 +7,7 @@
 
     <ol>
       <li v-for="item in items" :key="item.id">
-        <ListItem :item="item" @delete-item="deleteItem(item)"/>
+        <ListItem :item="item" @delete-item="deleteItem(item)" @toggle-complete="item.is_done = !item.is_done"/>
       </li>
     </ol>
     <button name="clear-items" @click="clear">Clear</button>
@@ -22,10 +22,10 @@ import {Item} from "@/types";
 import {ref} from "vue";
 
 const text = ref("Do the dishes")
-const items = ref<Item[]>([{id: 123, description: "Something else"}]);
+const items = ref<Item[]>([{id: 123, description: "Something else", is_done: false}]);
 
 function add() {
-  items.value.push({id: Date.now(), description: text.value})
+  items.value.push({id: Date.now(), description: text.value, is_done: false})
   text.value = '';
 }
 

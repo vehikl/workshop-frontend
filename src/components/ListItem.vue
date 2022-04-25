@@ -1,6 +1,8 @@
 <template>
   <div>
-    {{ props.item.description }}
+    <input type="checkbox" @change="$emit('toggle-complete')">
+    <div v-if="!props.item.is_done">{{ props.item.description }}</div>
+    <del v-else>{{ props.item.description }}</del>
     <button @click="$emit('deleteItem')">Delete</button>
   </div>
 </template>

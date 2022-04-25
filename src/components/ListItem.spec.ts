@@ -6,7 +6,8 @@ describe('ListItem.vue', () => {
   it('displays the description of the item', () => {
     const item: Item = {
       id: 1234,
-      description: "Do the dishes"
+      description: "Do the dishes",
+      is_done: false
     }
 
     const wrapper = shallowMount(ListItem, {
