@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto">
+  <div class="container mx-auto max-w-lg">
     <TodoList/>
   </div>
 </template>

@@ -1,8 +1,13 @@
 <template>
   <div>
     <div style="display: flex;justify-content: normal; align-content: center">
-      <input v-model="text" name="new-item" type="text" @keyup.enter="add">
-      <button :disabled="!text" @click="add">Add</button>
+      <input v-model="text"
+             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+             name="new-item" type="text" @keyup.enter="add">
+      <button :disabled="!text"
+              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              @click="add">Add
+      </button>
     </div>
 
     <ol>
