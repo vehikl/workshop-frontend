@@ -1,6 +1,7 @@
 <template>
   <div>
-    <div class="flex justify-start py-5">
+
+  <div class="flex justify-start py-5">
       <input v-model="text"
              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
              name="new-item" type="text" @keyup.enter="add">
