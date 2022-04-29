@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div style="display: flex;justify-content: normal; align-content: center">
+    <div class="flex justify-start py-5">
       <input v-model="text"
              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
              name="new-item" type="text" @keyup.enter="add">
@@ -10,12 +10,13 @@
       </button>
     </div>
 
-    <ol>
+    <ol class="divide-y">
       <li v-for="item in items" :key="item.id">
         <ListItem :item="item" @delete-item="deleteItem(item)" @toggle-complete="item.is_done = !item.is_done"/>
       </li>
     </ol>
-    <button name="clear-items" @click="clear">Clear</button>
+    <button class="block rounded w-full text-white py-2 px-4 bg-red-500" name="clear-items" @click="clear">Clear
+    </button>
   </div>
 </template>
 
